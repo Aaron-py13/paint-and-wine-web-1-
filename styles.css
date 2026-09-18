@@ -10,7 +10,7 @@
        y etiqueta seis como "Amarillo": son erratas del manual.)
    3. El verde pasa de 5 secciones a 1. Crema y guinda dominan.
    4. Corregidos dos contrastes que no pasaban AA (coral + blanco).
-   5. Añadida la regla de énfasis (Minion itálica).
+   5. Énfasis por peso de Bankside. Minion queda fuera (reunión 18/09).
 
    NO PEGAR PARCHES AL FINAL DE ESTE ARCHIVO.
    Si algo hay que cambiar, se edita en su sitio.
@@ -51,15 +51,10 @@
   font-display: swap;
 }
 
-/* ÉNFASIS — Minion Variable Concept Italic */
-@font-face {
-  font-family: "Minion Variable Concept";
-  src: url("assets/fonts/MinionVariableConcept-Italic.woff2") format("woff2"),
-       url("assets/fonts/MinionVariableConcept-Italic.otf") format("opentype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+/* Minion Variable queda FUERA de la web (reunion 18/09/2026):
+   "no la usan mucho... la indicacion final quedo en Asom Serif +
+   Comico Regular + B-Side". El enfasis se resuelve con el eje de
+   peso de Bankside, que va de 100 a 900.                          */
 
 :root {
   /* ---- PALETA OFICIAL (valores reales muestreados del PDF) ---- */
@@ -85,7 +80,6 @@
   --display:"Awesome Serif",Georgia,serif;                   /* titulares */
   --body:"Bankside Sans","Helvetica Neue",Arial,sans-serif;  /* párrafos, botones, formulario */
   --hand:"Comico","Comic Sans MS",cursive;                   /* frases artísticas */
-  --emphasis:"Minion Variable Concept",Georgia,serif;        /* palabras destacadas */
 
   /* ---- FORMA: cuadrado de esquinas redondeadas (pedido de la clienta) ---- */
   --radio:22px;      /* tarjetas, fotos, contenedores */
@@ -1346,7 +1340,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 /* ============================================================
    SISTEMA TIPOGRÁFICO — LA REGLA QUE FALTABA
    em dentro de TITULAR  -> Comico (frase artística)
-   em dentro de PÁRRAFO  -> Minion itálica (énfasis)
+   em dentro de PÁRRAFO  -> Bankside en peso 650 (énfasis)
    ============================================================ */
 
 /* Comico en los acentos de titular, sin cursiva artificial. */
@@ -1360,14 +1354,16 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   font-style: normal;
 }
 
-/* Minion itálica: palabras muy puntuales dentro del texto corrido. */
+/* ENFASIS sin cuarta tipografia: se marca con PESO, no con cursiva.
+   Bankside es variable (100-900), asi que 650 destaca la palabra
+   sin salirse de las tres fuentes aprobadas.                       */
 p em,
 li em,
 blockquote em,
 .enfasis {
-  font-family: var(--emphasis);
-  font-style: italic;
-  font-weight: 400;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 650;
 }
 
 /* Frase artística suelta (tipo "Si puedes leer esto, ya es arte"). */
