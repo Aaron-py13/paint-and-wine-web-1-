@@ -37,6 +37,9 @@
   src: url("assets/fonts/BanksideSansVF.woff2") format("woff2-variations"),
        url("assets/fonts/BanksideSansVF.ttf") format("truetype-variations");
   font-weight: 100 900;
+  /* Bankside trae dos ejes: wght y wdth. Sin declarar font-stretch el
+     navegador ignora el eje de ancho y la fuente queda a medias.        */
+  font-stretch: 40% 160%;
   font-style: normal;
   font-display: swap;
 }
@@ -82,10 +85,14 @@
   --hand:"Comico","Comic Sans MS",cursive;                   /* frases artísticas */
 
   /* ---- FORMA: cuadrado de esquinas redondeadas (pedido de la clienta) ---- */
-  --radio:22px;      /* tarjetas, fotos, contenedores */
-  --radio-sm:14px;   /* version movil y piezas pequenas */
+  --radio:28px;      /* tarjetas, fotos, contenedores. Acta 18/09: "un poco mas
+                        redondeados". De 22 a 28: se nota, sin volverse capsula. */
+  --radio-sm:18px;   /* version movil y piezas pequenas (era 14) */
 
-  --gutter:clamp(1.25rem,5vw,6rem);
+  /* MARGEN LATERAL. El tope sube de 6rem a 7rem: en pantallas de laptop y
+     PC el sitio respiraba poco a los costados. En movil no cambia nada,
+     porque debajo de 400px manda el minimo de 1.25rem, no el 5vw.        */
+  --gutter:clamp(1.25rem,5vw,7rem);
   --header-height:76px;
 }
 *,*::before,*::after { box-sizing:border-box; }
@@ -140,7 +147,21 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
    0.151, pero hay puntos casi blancos (lienzos) de 0.977. Un velo
    uniforme al 68% deja el titular por encima de 4.5:1 en la mayor
    parte; los lienzos claros siguen siendo el punto debil.            */
-.hero-shade { position:absolute; inset:0; background:#0d0d0d; opacity:calc(var(--shade-opacity,1) * .68); }
+.hero-shade {
+  position:absolute; inset:0;
+  /* VELO DIRECCIONAL. Antes era plano al 68%: apagaba la foto entera para
+     salvar el texto. Ahora el negro se concentra donde estan las letras
+     (izquierda) y se desvanece a la derecha, donde la foto se ve limpia.
+     Neutro #0d0d0d, sin tinte guinda. */
+  background:
+    linear-gradient(100deg,
+      rgba(13,13,13,.88) 0%,
+      rgba(13,13,13,.80) 40%,
+      rgba(13,13,13,.40) 68%,
+      rgba(13,13,13,.10) 100%),
+    linear-gradient(to top, rgba(13,13,13,.40) 0%, rgba(13,13,13,0) 42%);
+  opacity:var(--shade-opacity,1);
+}
 .hero-wash { position:absolute; inset:0; background:var(--cream); opacity:var(--wash-opacity,0); pointer-events:none; }
 .hero-intro { position:relative; z-index:4; width:min(100%,950px); color:var(--cream); opacity:var(--intro-opacity,1); transform:translateY(var(--intro-y,0px)); }
 /* Caja de frase, NO mayusculas: la clienta lo pidio asi. */
@@ -227,7 +248,12 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .founder-copy blockquote { margin:1.5rem 0 0; padding-top:1.5rem; border-top:1px solid #1717164d; font-family:var(--display); font-size:clamp(1.5rem,2.5vw,2.4rem); }
 .experience-head { min-height:55vh; display:grid; align-content:end; background:var(--guinda); color:var(--cream); }
 .experience-head h2 { max-width:1050px; margin:0; font-family:var(--display); font-size:clamp(2.8rem,7vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.05em; }
-.benefit { display:grid; grid-template-columns:minmax(60px,.3fr) minmax(0,1fr) minmax(0,1fr); align-items:center; gap:2rem; padding:clamp(3rem,6vw,6rem) var(--gutter); }
+/* TARJETAS DE BENEFICIO.
+   El gap era fijo en 2rem: en PC dejaba el titulo pegado a la foto (unos
+   30px de aire). Ahora escala con el ancho y llega a 6rem en pantalla
+   grande. La columna del numero baja de .3fr a .22fr porque "01" nunca
+   necesito 200px. En movil el clamp cae a 1.5rem, igual que antes.       */
+.benefit { display:grid; grid-template-columns:max-content minmax(0,1fr) minmax(0,1.05fr); align-items:center; column-gap:clamp(1.5rem,3.5vw,4rem); row-gap:1.5rem; padding:clamp(3rem,6vw,6rem) var(--gutter); }
 .benefit-lime { background:var(--lime); } .benefit-sky { background:var(--sky); } .benefit-coral { background:var(--coral); }
 .benefit-number { align-self:start; font-family:var(--display); font-size:clamp(3rem,7vw,8rem); line-height:1; opacity:.55; }
 .benefit-copy { min-width:0; }
@@ -447,6 +473,15 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .is-cinematic .hero-sticky { position:sticky; top:0; height:100vh; min-height:0; }
   .is-cinematic .hero-logo-mask { display:flex; }
 }
+/* PANTALLAS GRANDES (laptop 15", monitores).
+   Todo el resto del archivo son max-width, o sea reglas pensadas para ir
+   achicando desde el movil. Este es el unico bloque que mira hacia arriba:
+   en 1400px o mas el texto deja de estirarse hasta tocar la foto.        */
+@media (min-width:1400px) {
+  .benefit-copy { padding-right:clamp(1rem,3vw,4rem); }
+  .story-copy { padding-right:calc(var(--gutter) + 1.5rem); }
+  .story-step > p:last-child { max-width:620px; }
+}
 @media (max-width:1199px) {
   .site-footer { grid-template-columns:minmax(0,1fr); }
   .footer-brand { font-size:clamp(2.8rem,8vw,6rem); }
@@ -483,7 +518,15 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 @media (max-width:600px) {
   .hero-sticky { padding-top:6.5rem; padding-bottom:7rem; }
   .hero-intro h1,.hero-intro .paint-title { font-size:clamp(2rem,8.7vw,3.25rem); line-height:1.16; }
-  .hero-shade { background:#0d0d0d; opacity:calc(var(--shade-opacity,1) * .72); }
+  /* En movil el texto ocupa todo el ancho, asi que un degradado lateral no
+     sirve: aqui el velo baja de arriba hacia abajo y la foto respira arriba. */
+  .hero-shade {
+    background:linear-gradient(to bottom,
+      rgba(13,13,13,.34) 0%,
+      rgba(13,13,13,.72) 38%,
+      rgba(13,13,13,.78) 100%);
+    opacity:var(--shade-opacity,1);
+  }
   .hero-intro > p:not(.eyebrow) { margin:1rem 0 1.5rem; }
   .statement,.experience-head { min-height:0; }
   .benefit { grid-template-columns:minmax(0,1fr); }

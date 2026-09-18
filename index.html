@@ -4,18 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Paint & Wine Perú: experiencias de pintura, vino, cumpleaños y eventos corporativos en Lima. No necesitas experiencia, solo ganas de crear.">
-  <meta name="theme-color" content="#013631">
+  <meta name="theme-color" content="#600716">
   <title>Paint & Wine Perú | Pinta, brinda y conecta</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=DM+Sans:wght@400;500&family=Kalam:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <a class="skip-link" href="#contenido">Ir al contenido</a>
 
- <!-- PINCEL: definición reutilizable, no se ve en la página -->
+  <!-- PINCEL: definición reutilizable, no se ve en la página -->
   <svg width="0" height="0" aria-hidden="true" style="position:absolute">
     <defs>
       <linearGradient id="pwWood" x1="0" y1="0" x2="1" y2="0">
@@ -66,6 +63,8 @@
   </header>
 
   <main id="contenido" tabindex="-1">
+
+    <!-- HERO -->
     <section class="cinematic-hero" id="inicio" aria-label="Presentación de Paint and Wine">
       <div class="hero-sticky">
         <img class="hero-background" src="assets/hero.webp" alt="Taller de Paint and Wine preparado al aire libre" fetchpriority="high">
@@ -74,22 +73,23 @@
 
         <div class="hero-intro">
           <p class="eyebrow">Experiencias de arte y vino · Lima</p>
+
           <h1 class="paint-title" aria-label="Descubre el artista que llevas dentro.">
-  <span class="paint-line" aria-hidden="true">
-    <span class="paint-words">Descubre el</span>
-    <span class="paint-brush"><svg viewBox="0 0 60 220"><use href="#pw-brush"/></svg></span>
-  </span>
+            <span class="paint-line" aria-hidden="true">
+              <span class="paint-words">Descubre el</span>
+              <span class="paint-brush"><svg viewBox="0 0 60 220"><use href="#pw-brush"/></svg></span>
+            </span>
+            <span class="paint-line" aria-hidden="true">
+              <span class="paint-words"><em>artista</em> que</span>
+              <span class="paint-brush"><svg viewBox="0 0 60 220"><use href="#pw-brush"/></svg></span>
+            </span>
+            <span class="paint-line" aria-hidden="true">
+              <span class="paint-words">llevas dentro.</span>
+              <span class="paint-brush"><svg viewBox="0 0 60 220"><use href="#pw-brush"/></svg></span>
+            </span>
+          </h1>
 
-  <span class="paint-line" aria-hidden="true">
-    <span class="paint-words"><em>artista</em> que</span>
-    <span class="paint-brush"><svg viewBox="0 0 60 220"><use href="#pw-brush"/></svg></span>
-  </span>
-
-  <span class="paint-line" aria-hidden="true">
-    <span class="paint-words">llevas dentro.</span>
-    <span class="paint-brush"><svg viewBox="0 0 60 220"><use href="#pw-brush"/></svg></span>
-  </span>
-</h1>    <p>No necesitas experiencia. Solo ganas de crear, brindar y disfrutar.</p>
+          <p>No necesitas experiencia. Solo ganas de crear, brindar y disfrutar.</p>
           <a class="button button-light" href="#experiencia">Vive la experiencia</a>
         </div>
 
@@ -101,11 +101,13 @@
       </div>
     </section>
 
+    <!-- FRASE -->
     <section class="statement section-pad" aria-label="Mensaje principal">
       <p class="reveal">Pintar no es hacerlo perfecto.</p>
       <h2 class="reveal">Es darte el espacio para <em>crear sin miedo.</em></h2>
     </section>
 
+    <!-- HISTORIA -->
     <section class="story" id="historia">
       <div class="story-visual">
         <div class="story-photo-wrap">
@@ -115,19 +117,19 @@
       </div>
       <div class="story-copy">
         <article class="story-step is-active" data-image="assets/story.webp">
-          <span>01</span>
+          <span aria-hidden="true">01</span>
           <p class="eyebrow">¿Quiénes somos?</p>
           <h2>Un espacio para crear, relajarte y conectar.</h2>
           <p>Creemos que todos llevamos un artista dentro y que la pintura puede devolvernos al presente.</p>
         </article>
         <article class="story-step" data-image="assets/community.webp">
-          <span>02</span>
+          <span aria-hidden="true">02</span>
           <p class="eyebrow">¿Qué hacemos?</p>
           <h2>Convertimos una noche en una experiencia única.</h2>
           <p>Pintamos juntos mientras disfrutas de una copa de vino o de tu bebida favorita, sin importar tu experiencia previa.</p>
         </article>
         <article class="story-step" data-image="assets/confidence.webp">
-          <span>03</span>
+          <span aria-hidden="true">03</span>
           <p class="eyebrow">¿Por qué lo hacemos?</p>
           <h2>Porque crear también es cuidarte.</h2>
           <p>El arte libera el estrés, fortalece la confianza y nos ayuda a reconectar con nuestro lado más libre.</p>
@@ -135,6 +137,7 @@
       </div>
     </section>
 
+    <!-- FUNDADORA -->
     <section class="founder section-pad">
       <div class="founder-image reveal">
         <img src="assets/gaby.webp" alt="Gaby Ganoza, artista visual y fundadora de Paint and Wine" loading="lazy">
@@ -148,355 +151,154 @@
       </div>
     </section>
 
+    <!-- BENEFICIOS -->
     <section class="experience" id="experiencia">
       <div class="experience-head section-pad">
         <p class="eyebrow reveal">¿Por qué elegirnos?</p>
         <h2 class="reveal">Una experiencia que se queda contigo.</h2>
       </div>
+
       <div class="benefit benefit-lime">
-        <div class="benefit-number">01</div>
+        <div class="benefit-number" aria-hidden="true">01</div>
         <div class="benefit-copy reveal">
-          <p>Confianza</p><h3>Cada pincelada demuestra que eres capaz de más.</h3>
+          <p>Confianza</p>
+          <h3>Cada pincelada demuestra que eres capaz de más.</h3>
         </div>
         <img src="assets/confidence.webp" alt="Participante disfrutando de Paint and Wine" loading="lazy">
       </div>
+
       <div class="benefit benefit-sky">
-        <div class="benefit-number">02</div>
+        <div class="benefit-number" aria-hidden="true">02</div>
         <div class="benefit-copy reveal">
-          <p>Desconexión</p><h3>Una pausa para soltar el estrés y disfrutar el presente.</h3>
+          <p>Desconexión</p>
+          <h3>Una pausa para soltar el estrés y disfrutar el presente.</h3>
         </div>
         <img src="assets/community.webp" alt="Taller grupal de pintura" loading="lazy">
       </div>
+
       <div class="benefit benefit-coral">
-        <div class="benefit-number">03</div>
+        <div class="benefit-number" aria-hidden="true">03</div>
         <div class="benefit-copy reveal">
-          <p>Conexión</p><h3>El arte une, rompe barreras y crea recuerdos.</h3>
+          <p>Conexión</p>
+          <h3>El arte une, rompe barreras y crea recuerdos.</h3>
         </div>
         <img src="assets/connection.webp" alt="Grupo pintando y compartiendo alrededor de una mesa" loading="lazy">
       </div>
     </section>
 
+    <!-- CIFRAS Y MARCAS -->
     <section class="proof section-pad" aria-label="Experiencia comprobada">
       <div class="proof-stat reveal"><strong data-count="1000">1,000</strong><span>eventos realizados</span></div>
       <div class="proof-stat reveal"><strong data-count="2000">2,000</strong><span>participantes</span></div>
+
       <div class="brand-wall reveal">
         <div class="brand-wall-heading">
           <p class="eyebrow">Experiencias que dejan huella</p>
           <h3>Hemos trabajado con empresas, bancos y grupos privados.</h3>
         </div>
-      <div
-  class="brands-carousel"
-  aria-label="Empresas y organizaciones con las que hemos trabajado"
->
-  <div class="brands-track">
 
-    <ul class="brands-list">
-      <li>
-        <img src="assets/marcas/comunal.webp" alt="Comunal">
-      </li>
-
-      <li>
-        <img src="assets/marcas/crehana.webp" alt="Crehana">
-      </li>
-
-      <li>
-        <img src="assets/marcas/udep.webp" alt="Universidad de Piura">
-      </li>
-
-      <li>
-        <img src="assets/marcas/hilton.webp" alt="Hilton Garden Inn">
-      </li>
-
-      <li>
-        <img src="assets/marcas/aperol.webp" alt="Aperol Spritz">
-      </li>
-
-      <li>
-        <img src="assets/marcas/coleccion-privada.webp" alt="Colección Privada">
-      </li>
-
-      <li>
-        <img src="assets/marcas/microsoft.webp" alt="Microsoft">
-      </li>
-
-      <li>
-        <img src="assets/marcas/crepier.webp" alt="Crepier">
-      </li>
-
-      <li>
-        <img src="assets/marcas/bcp.webp" alt="BCP">
-      </li>
-
-      <li>
-        <img src="assets/marcas/rue.webp" alt="Rue">
-      </li>
-
-      <li>
-        <img src="assets/marcas/roche.webp" alt="Roche">
-      </li>
-
-      <li>
-        <img src="assets/marcas/king-kronuts.webp" alt="King Kronuts">
-      </li>
-
-      <li>
-        <img src="assets/marcas/santander.webp" alt="Santander">
-      </li>
-
-      <li>
-        <img src="assets/marcas/agp.webp" alt="AGP">
-      </li>
-
-      <li>
-        <img src="assets/marcas/coca-cola.webp" alt="Coca-Cola">
-      </li>
-
-      <li>
-        <img src="assets/marcas/dazzler.webp" alt="Dazzler">
-      </li>
-
-      <li>
-        <img src="assets/marcas/grupo-lucky.webp" alt="Grupo Lucky">
-      </li>
-
-      <li>
-        <img src="assets/marcas/artesco.webp" alt="Artesco">
-      </li>
-
-      <li>
-        <img src="assets/marcas/mary-kay.webp" alt="Mary Kay">
-      </li>
-
-      <li>
-        <img src="assets/marcas/lexus.webp" alt="Lexus">
-      </li>
-    </ul>
-
-  </div>
-</div>
+        <div class="brands-carousel" aria-label="Empresas y organizaciones con las que hemos trabajado">
+          <div class="brands-track">
+            <ul class="brands-list">
+              <li><img src="assets/marcas/comunal.webp" alt="Comunal" loading="lazy"></li>
+              <li><img src="assets/marcas/crehana.webp" alt="Crehana" loading="lazy"></li>
+              <li><img src="assets/marcas/udep.webp" alt="Universidad de Piura" loading="lazy"></li>
+              <li><img src="assets/marcas/hilton.webp" alt="Hilton Garden Inn" loading="lazy"></li>
+              <li><img src="assets/marcas/aperol.webp" alt="Aperol Spritz" loading="lazy"></li>
+              <li><img src="assets/marcas/coleccion-privada.webp" alt="Colección Privada" loading="lazy"></li>
+              <li><img src="assets/marcas/microsoft.webp" alt="Microsoft" loading="lazy"></li>
+              <li><img src="assets/marcas/crepier.webp" alt="Crepier" loading="lazy"></li>
+              <li><img src="assets/marcas/bcp.webp" alt="BCP" loading="lazy"></li>
+              <li><img src="assets/marcas/rue.webp" alt="Rue" loading="lazy"></li>
+              <li><img src="assets/marcas/roche.webp" alt="Roche" loading="lazy"></li>
+              <li><img src="assets/marcas/king-kronuts.webp" alt="King Kronuts" loading="lazy"></li>
+              <li><img src="assets/marcas/santander.webp" alt="Santander" loading="lazy"></li>
+              <li><img src="assets/marcas/agp.webp" alt="AGP" loading="lazy"></li>
+              <li><img src="assets/marcas/coca-cola.webp" alt="Coca-Cola" loading="lazy"></li>
+              <li><img src="assets/marcas/dazzler.webp" alt="Dazzler" loading="lazy"></li>
+              <li><img src="assets/marcas/grupo-lucky.webp" alt="Grupo Lucky" loading="lazy"></li>
+              <li><img src="assets/marcas/artesco.webp" alt="Artesco" loading="lazy"></li>
+              <li><img src="assets/marcas/mary-kay.webp" alt="Mary Kay" loading="lazy"></li>
+              <li><img src="assets/marcas/lexus.webp" alt="Lexus" loading="lazy"></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-<!-- VIDEOS DE EXPERIENCIAS -->
-<section
-  class="pw-reels"
-  id="eventos-en-video"
-  aria-labelledby="pw-reels-title"
->
-  <div class="pw-reels-heading">
-    <div>
-      <p class="pw-reels-eyebrow">
-        Así se vive Paint &amp; Wine
-      </p>
-
-      <h2 id="pw-reels-title">
-        Momentos que se quedan.
-      </h2>
-    </div>
-
-    <p class="pw-reels-hint" id="pw-reels-hint">
-      Elige un video y vive la experiencia.
-    </p>
-  </div>
-
-  <div
-    class="pw-reels-track"
-    tabindex="0"
-    role="region"
-    aria-label="Videos de eventos"
-    aria-describedby="pw-reels-hint"
-  >
-    <!-- LEXUS -->
-    <article class="pw-reel">
-      <div class="pw-reel-media">
-        <video
-          controls
-          playsinline
-          preload="none"
-          poster="assets/posters/lexus.jpg"
-          aria-label="Evento Paint and Wine con Lexus"
-        >
-          <source
-            src="assets/videos/lexus.mp4"
-            type="video/mp4"
-          >
-          Tu navegador no puede reproducir este video.
-        </video>
-
-        <button
-          class="pw-reel-start"
-          type="button"
-          aria-label="Reproducir evento con Lexus"
-          hidden
-        >
-          <img
-            src="assets/posters/lexus.jpg"
-            alt=""
-            loading="lazy"
-            width="640"
-            height="360"
-          >
-
-          <span class="pw-reel-play" aria-hidden="true">
-            ▶
-          </span>
-
-          <span class="pw-reel-duration" aria-hidden="true">
-            0:39
-          </span>
-
-          <span class="pw-reel-action" aria-hidden="true">
-            Ver experiencia ↗
-          </span>
-        </button>
+    <!-- VIDEOS DE EXPERIENCIAS -->
+    <section class="pw-reels" id="eventos-en-video" aria-labelledby="pw-reels-title">
+      <div class="pw-reels-heading">
+        <div>
+          <p class="pw-reels-eyebrow">Así se vive Paint &amp; Wine</p>
+          <h2 id="pw-reels-title">Momentos que se quedan.</h2>
+        </div>
+        <p class="pw-reels-hint" id="pw-reels-hint">Elige un video y vive la experiencia.</p>
       </div>
 
-      <div class="pw-reel-caption">
-        <h3>Lexus</h3>
-        <span>Arte que conecta</span>
+      <div class="pw-reels-track" tabindex="0" role="region" aria-label="Videos de eventos" aria-describedby="pw-reels-hint">
+
+        <!-- LEXUS -->
+        <article class="pw-reel">
+          <div class="pw-reel-media">
+            <video controls playsinline preload="none" poster="assets/posters/lexus.jpg" aria-label="Evento Paint and Wine con Lexus">
+              <source src="assets/videos/lexus.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+            <button class="pw-reel-start" type="button" aria-label="Reproducir evento con Lexus" hidden>
+              <img src="assets/posters/lexus.jpg" alt="" loading="lazy" width="640" height="360">
+              <span class="pw-reel-play" aria-hidden="true">▶</span>
+              <span class="pw-reel-duration" aria-hidden="true">0:39</span>
+              <span class="pw-reel-action" aria-hidden="true">Ver experiencia ↗</span>
+            </button>
+          </div>
+          <div class="pw-reel-caption"><h3>Lexus</h3><span>Arte que conecta</span></div>
+          <p class="pw-reel-status" role="status" hidden></p>
+          <a class="pw-reel-fallback" href="assets/videos/lexus.mp4" target="_blank" rel="noopener noreferrer" hidden>Abrir video de Lexus</a>
+        </article>
+
+        <!-- CREPIER -->
+        <article class="pw-reel">
+          <div class="pw-reel-media">
+            <video controls playsinline preload="none" poster="assets/posters/crepier.jpg" aria-label="Evento Paint and Wine con Crepier">
+              <source src="assets/videos/crepier.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+            <button class="pw-reel-start" type="button" aria-label="Reproducir evento con Crepier" hidden>
+              <img src="assets/posters/crepier.jpg" alt="" loading="lazy" width="480" height="854">
+              <span class="pw-reel-play" aria-hidden="true">▶</span>
+              <span class="pw-reel-duration" aria-hidden="true">0:33</span>
+              <span class="pw-reel-action" aria-hidden="true">Ver experiencia ↗</span>
+            </button>
+          </div>
+          <div class="pw-reel-caption"><h3>Crepier</h3><span>Crear y compartir</span></div>
+          <p class="pw-reel-status" role="status" hidden></p>
+          <a class="pw-reel-fallback" href="assets/videos/crepier.mp4" target="_blank" rel="noopener noreferrer" hidden>Abrir video de Crepier</a>
+        </article>
+
+        <!-- PAINT & WINE -->
+        <article class="pw-reel">
+          <div class="pw-reel-media">
+            <video controls playsinline preload="none" poster="assets/posters/paint-wine.jpg" aria-label="Experiencia de pintura y vino">
+              <source src="assets/videos/paint-wine.mp4" type="video/mp4">
+              Tu navegador no puede reproducir este video.
+            </video>
+            <button class="pw-reel-start" type="button" aria-label="Reproducir experiencia de pintura y vino" hidden>
+              <img src="assets/posters/paint-wine.jpg" alt="" loading="lazy" width="640" height="1138">
+              <span class="pw-reel-play" aria-hidden="true">▶</span>
+              <span class="pw-reel-duration" aria-hidden="true">0:38</span>
+              <span class="pw-reel-action" aria-hidden="true">Ver experiencia ↗</span>
+            </button>
+          </div>
+          <div class="pw-reel-caption"><h3>Paint &amp; Wine</h3><span>Descubre tu artista</span></div>
+          <p class="pw-reel-status" role="status" hidden></p>
+          <a class="pw-reel-fallback" href="assets/videos/paint-wine.mp4" target="_blank" rel="noopener noreferrer" hidden>Abrir video de Paint and Wine</a>
+        </article>
+
       </div>
+    </section>
 
-      <p class="pw-reel-status" role="status" hidden></p>
-
-      <a
-        class="pw-reel-fallback"
-        href="assets/videos/lexus.mp4"
-        target="_blank"
-        rel="noopener noreferrer"
-        hidden
-      >
-        Abrir video de Lexus
-      </a>
-    </article>
-
-    <!-- CREPIER -->
-    <article class="pw-reel">
-      <div class="pw-reel-media">
-        <video
-          controls
-          playsinline
-          preload="none"
-          poster="assets/posters/crepier.jpg"
-          aria-label="Evento Paint and Wine con Crepier"
-        >
-          <source
-            src="assets/videos/crepier.mp4"
-            type="video/mp4"
-          >
-          Tu navegador no puede reproducir este video.
-        </video>
-
-        <button
-          class="pw-reel-start"
-          type="button"
-          aria-label="Reproducir evento con Crepier"
-          hidden
-        >
-          <img
-            src="assets/posters/crepier.jpg"
-            alt=""
-            loading="lazy"
-            width="480"
-            height="854"
-          >
-
-          <span class="pw-reel-play" aria-hidden="true">
-            ▶
-          </span>
-
-          <span class="pw-reel-duration" aria-hidden="true">
-            0:33
-          </span>
-
-          <span class="pw-reel-action" aria-hidden="true">
-            Ver experiencia ↗
-          </span>
-        </button>
-      </div>
-
-      <div class="pw-reel-caption">
-        <h3>Crepier</h3>
-        <span>Crear y compartir</span>
-      </div>
-
-      <p class="pw-reel-status" role="status" hidden></p>
-
-      <a
-        class="pw-reel-fallback"
-        href="assets/videos/crepier.mp4"
-        target="_blank"
-        rel="noopener noreferrer"
-        hidden
-      >
-        Abrir video de Crepier
-      </a>
-    </article>
-
-    <!-- PAINT & WINE -->
-    <article class="pw-reel">
-      <div class="pw-reel-media">
-        <video
-          controls
-          playsinline
-          preload="none"
-          poster="assets/posters/paint-wine.jpg"
-          aria-label="Experiencia de pintura y vino"
-        >
-          <source
-            src="assets/videos/paint-wine.mp4"
-            type="video/mp4"
-          >
-          Tu navegador no puede reproducir este video.
-        </video>
-
-        <button
-          class="pw-reel-start"
-          type="button"
-          aria-label="Reproducir experiencia de pintura y vino"
-          hidden
-        >
-          <img
-            src="assets/posters/paint-wine.jpg"
-            alt=""
-            loading="lazy"
-            width="640"
-            height="1138"
-          >
-
-          <span class="pw-reel-play" aria-hidden="true">
-            ▶
-          </span>
-
-          <span class="pw-reel-duration" aria-hidden="true">
-            0:38
-          </span>
-
-          <span class="pw-reel-action" aria-hidden="true">
-            Ver experiencia ↗
-          </span>
-        </button>
-      </div>
-
-      <div class="pw-reel-caption">
-        <h3>Paint &amp; Wine</h3>
-        <span>Descubre tu artista</span>
-      </div>
-
-      <p class="pw-reel-status" role="status" hidden></p>
-
-      <a
-        class="pw-reel-fallback"
-        href="assets/videos/paint-wine.mp4"
-        target="_blank"
-        rel="noopener noreferrer"
-        hidden
-      >
-        Abrir video de Paint and Wine
-      </a>
-    </article>
-  </div>
-</section>
-
+    <!-- PAQUETES -->
     <section class="packages-scroll" id="paquetes">
       <div class="packages-sticky">
         <div class="packages-heading">
@@ -516,21 +318,50 @@
             </div>
           </div>
         </div>
+
         <p class="price-context" aria-live="polite">Precios para <strong id="selected-group-label">1–10 personas</strong></p>
+
         <div class="packages-track" id="packages-track">
           <article class="package-card package-lime">
             <div class="package-image"><img src="assets/package-artist.webp" alt="Materiales y lienzos preparados para pintar" loading="lazy"></div>
-            <div class="package-content"><span>01</span><h3>Artista</h3><strong class="package-price" data-package="artista">S/ 850</strong><p>Materiales y taller guiado por una artista profesional.</p><small>Lienzo · pinceles · pinturas acrílicas · paleta · caballete · mandil</small><p class="package-note">A domicilio · No incluye local, vino ni comida</p><a href="#reserva" data-book-package="Artista">Elegir Artista</a></div>
+            <div class="package-content">
+              <span aria-hidden="true">01</span>
+              <h3>Artista</h3>
+              <strong class="package-price" data-package="artista">S/ 850</strong>
+              <p>Materiales y taller guiado por una artista profesional.</p>
+              <small>Lienzo · pinceles · pinturas acrílicas · paleta · caballete · mandil</small>
+              <p class="package-note">A domicilio · No incluye local, vino ni comida</p>
+              <a href="#reserva" data-book-package="Artista">Elegir Artista</a>
+            </div>
           </article>
+
           <article class="package-card package-sky">
             <div class="package-image"><img src="assets/package-picasso.webp" alt="Piqueos preparados para el paquete Picasso" loading="lazy"></div>
-            <div class="package-content"><span>02</span><h3>Picasso</h3><strong class="package-price" data-package="picasso">S/ 1,500</strong><p>Todo lo del paquete Artista, más coffee break y bebidas.</p><small>Minicroissants · croissant mixto · alfajores · habanitos · vino o jugo</small><p class="package-note">La experiencia llega a tu domicilio</p><a href="#reserva" data-book-package="Picasso">Elegir Picasso</a></div>
+            <div class="package-content">
+              <span aria-hidden="true">02</span>
+              <h3>Picasso</h3>
+              <strong class="package-price" data-package="picasso">S/ 1,500</strong>
+              <p>Todo lo del paquete Artista, más coffee break y bebidas.</p>
+              <small>Minicroissants · croissant mixto · alfajores · habanitos · vino o jugo</small>
+              <p class="package-note">La experiencia llega a tu domicilio</p>
+              <a href="#reserva" data-book-package="Picasso">Elegir Picasso</a>
+            </div>
           </article>
+
           <article class="package-card package-blue">
             <div class="package-image"><img src="assets/package-dali.webp" alt="Evento completo de Paint and Wine" loading="lazy"></div>
-            <div class="package-content"><span>03</span><h3>Dalí</h3><strong class="package-price" data-package="dali">S/ 1,650</strong><p>Organización completa para que solo te concentres en disfrutar.</p><small>Materiales · clase · bocaditos variados · bebidas · opciones de local</small><p class="package-note">Espacios adaptados al estilo de tu evento</p><a href="#reserva" data-book-package="Dalí">Elegir Dalí</a></div>
+            <div class="package-content">
+              <span aria-hidden="true">03</span>
+              <h3>Dalí</h3>
+              <strong class="package-price" data-package="dali">S/ 1,650</strong>
+              <p>Organización completa para que solo te concentres en disfrutar.</p>
+              <small>Materiales · clase · bocaditos variados · bebidas · opciones de local</small>
+              <p class="package-note">Espacios adaptados al estilo de tu evento</p>
+              <a href="#reserva" data-book-package="Dalí">Elegir Dalí</a>
+            </div>
           </article>
         </div>
+
         <div class="package-terms" aria-label="Condiciones de reserva">
           <span><strong>50%</strong> para reservar</span>
           <span><strong>50%</strong> hasta el día del evento</span>
@@ -539,6 +370,7 @@
       </div>
     </section>
 
+    <!-- PERSONALIZACIÓN -->
     <section class="custom section-pad">
       <div class="custom-title reveal">
         <p class="eyebrow">Opciones de personalización</p>
@@ -552,6 +384,7 @@
       </div>
     </section>
 
+    <!-- GALERÍA -->
     <section class="gallery" id="galeria">
       <div class="gallery-copy reveal">
         <p class="eyebrow">Así se vive Paint &amp; Wine</p>
@@ -565,6 +398,7 @@
       </div>
     </section>
 
+    <!-- RESERVA -->
     <section class="booking" id="reserva">
       <div class="booking-copy">
         <p class="eyebrow">Hazlo realidad</p>
@@ -572,138 +406,93 @@
         <p>Cuéntanos tu idea y abriremos WhatsApp con tu solicitud lista para enviar.</p>
         <p class="contact-line">Lima, Perú · +51 973 368 973</p>
       </div>
+
       <form class="booking-form" id="booking-form">
         <label>Tu nombre<input id="form-name" name="name" autocomplete="name" required></label>
+
         <label>Tipo de experiencia
           <select id="form-event" name="event" required>
             <option value="">Selecciona una opción</option>
-            <option>Cumpleaños</option><option>Plan con amigos</option><option>Evento privado</option><option>Evento corporativo</option>
+            <option>Cumpleaños</option>
+            <option>Plan con amigos</option>
+            <option>Evento privado</option>
+            <option>Evento corporativo</option>
           </select>
         </label>
+
         <label>Paquete de interés
           <select id="form-package" name="package" required>
             <option value="">Selecciona un paquete</option>
-            <option>Artista</option><option>Picasso</option><option>Dalí</option>
+            <option>Artista</option>
+            <option>Picasso</option>
+            <option>Dalí</option>
           </select>
         </label>
+
         <div class="form-row">
           <label>Participantes<input id="form-people" name="people" type="number" min="5" step="1" value="10" placeholder="Desde 5" required></label>
           <label>Fecha tentativa<input id="form-date" name="date" type="date"></label>
         </div>
+
         <button class="button button-coral" type="submit">Continuar por WhatsApp</button>
       </form>
     </section>
+
   </main>
 
   <footer class="site-footer">
+    <a class="brand footer-brand" href="#inicio" aria-label="Volver al inicio">
+      <span>PAINT &amp;</span><em>Wine</em>
+    </a>
 
-  <!-- LOGO -->
-  <a class="brand footer-brand" href="#inicio" aria-label="Volver al inicio">
-    <span>PAINT &amp;</span>
-    <em>Wine</em>
+    <nav class="social-networks" aria-label="Redes sociales de Paint &amp; Wine">
+      <a class="social-link instagram" href="https://www.instagram.com/paintandwineperu" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram de Paint and Wine Perú">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+            <circle cx="12" cy="12" r="4"></circle>
+            <circle class="icon-dot" cx="17.5" cy="6.5" r="1"></circle>
+          </svg>
+        </span>
+        <span class="social-info"><small>Síguenos en</small><strong>Instagram</strong></span>
+        <span class="social-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="social-link tiktok" href="https://www.tiktok.com/@paintandwineperu" target="_blank" rel="noopener noreferrer" aria-label="Visitar TikTok de Paint and Wine Perú">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14.5 3v11.1a4.15 4.15 0 1 1-3.6-4.1v3.1a1.3 1.3 0 1 0 .7 1.15V3h2.9zm0 0c.45 2.35 1.8 3.72 4.5 3.9V10c-1.75-.1-3.25-.65-4.5-1.65V3z"></path>
+          </svg>
+        </span>
+        <span class="social-info"><small>Descubre más en</small><strong>TikTok</strong></span>
+        <span class="social-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <a class="social-link youtube" href="https://www.youtube.com/@PaintandwinePeru" target="_blank" rel="noopener noreferrer" aria-label="Visitar YouTube de Paint and Wine Perú">
+        <span class="social-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2.5" y="5" width="19" height="14" rx="4"></rect>
+            <path class="youtube-play" d="M10 9L16 12L10 15Z"></path>
+          </svg>
+        </span>
+        <span class="social-info"><small>Mira nuestros eventos en</small><strong>YouTube</strong></span>
+        <span class="social-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <div class="footer-bottom">
+      <p>Experiencias de arte y vino en Lima, Perú.</p>
+    </div>
+  </footer>
+
+  <a id="whatsapp-art" class="whatsapp-art monalisa-contact"
+     href="https://wa.me/51973368973?text=Hola%20Paint%20%26%20Wine%2C%20quiero%20informaci%C3%B3n."
+     target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp" hidden>
+    <span class="monalisa-float">
+      <img src="assets/monalisa.png" alt="" width="1024" height="1024" loading="lazy">
+    </span>
   </a>
-
-  <!-- REDES SOCIALES -->
-  <nav class="social-networks" aria-label="Redes sociales de Paint &amp; Wine">
-
-    <!-- INSTAGRAM -->
-    <a
-      class="social-link instagram"
-      href="https://www.instagram.com/paintandwineperu"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Visitar Instagram de Paint and Wine Perú"
-    >
-      <span class="social-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle class="icon-dot" cx="17.5" cy="6.5" r="1"></circle>
-        </svg>
-      </span>
-
-      <span class="social-info">
-        <small>Síguenos en</small>
-        <strong>Instagram</strong>
-      </span>
-
-      <span class="social-arrow" aria-hidden="true">↗</span>
-    </a>
-
-    <!-- TIKTOK -->
-    <a
-      class="social-link tiktok"
-      href="https://www.tiktok.com/@paintandwineperu"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Visitar TikTok de Paint and Wine Perú"
-    >
-      <span class="social-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M14.5 3v11.1a4.15 4.15 0 1 1-3.6-4.1v3.1a1.3 1.3 0 1 0 .7 1.15V3h2.9zm0 0c.45 2.35 1.8 3.72 4.5 3.9V10c-1.75-.1-3.25-.65-4.5-1.65V3z"></path>
-        </svg>
-      </span>
-
-      <span class="social-info">
-        <small>Descubre más en</small>
-        <strong>TikTok</strong>
-      </span>
-
-      <span class="social-arrow" aria-hidden="true">↗</span>
-    </a>
-
-    <!-- YOUTUBE -->
-    <a
-      class="social-link youtube"
-      href="https://www.youtube.com/@PaintandwinePeru"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Visitar YouTube de Paint and Wine Perú"
-    >
-      <span class="social-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2.5" y="5" width="19" height="14" rx="4"></rect>
-          <path class="youtube-play" d="M10 9L16 12L10 15Z"></path>
-        </svg>
-      </span>
-
-      <span class="social-info">
-        <small>Mira nuestros eventos en</small>
-        <strong>YouTube</strong>
-      </span>
-
-      <span class="social-arrow" aria-hidden="true">↗</span>
-    </a>
-
-  </nav>
-
-  <!-- PARTE INFERIOR -->
-  <div class="footer-bottom">
-    <p>Experiencias de arte y vino en Lima, Perú.</p>
-  </div>
-
-</footer>
-
-<a
-  id="whatsapp-art"
-  class="whatsapp-art monalisa-contact"
-  href="https://wa.me/51973368973?text=Hola%20Paint%20%26%20Wine%2C%20quiero%20informaci%C3%B3n."
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Consultar por WhatsApp"
-  hidden
->
-  <span class="monalisa-float">
-    <img
-      src="assets/monalisa.png"
-      alt=""
-      width="1024"
-      height="1024"
-    >
-  </span>
-</a>
 
   <script src="script.js" defer></script>
 </body>
-
 </html>
