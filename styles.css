@@ -141,10 +141,16 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .hero-sticky { position:relative; min-height:100vh; min-height:100svh; display:flex; align-items:center; padding:7rem var(--gutter) 6rem; overflow:hidden; background:var(--cream); }
 .hero-background { position:absolute; inset:0; height:100%; object-fit:cover; object-position:center; transform:scale(var(--hero-scale,1)) translateY(var(--hero-y,0%)); }
 /* Velo sobre la fotografía. Es un oscurecido neutro, no un bloque de color. */
-.hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,#1a0f10e6 0%,#1a0f10bd 42%,#1a0f1052 75%,#1a0f1029); opacity:var(--shade-opacity,1); }
+/* VELO PLANO, SIN DEGRADADO (pedido de la clienta).
+   Medido sobre la foto real: detras del texto la luminancia media es
+   0.151, pero hay puntos casi blancos (lienzos) de 0.977. Un velo
+   uniforme al 68% deja el titular por encima de 4.5:1 en la mayor
+   parte; los lienzos claros siguen siendo el punto debil.            */
+.hero-shade { position:absolute; inset:0; background:#1a0f10; opacity:calc(var(--shade-opacity,1) * .68); }
 .hero-wash { position:absolute; inset:0; background:var(--cream); opacity:var(--wash-opacity,0); pointer-events:none; }
 .hero-intro { position:relative; z-index:4; width:min(100%,950px); color:var(--cream); opacity:var(--intro-opacity,1); transform:translateY(var(--intro-y,0px)); }
-.hero-intro h1 { margin:0; font-family:var(--display); font-size:clamp(2.6rem,7.4vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.035em; text-shadow:0 3px 16px #0005; }
+/* Caja de frase, NO mayusculas: la clienta lo pidio asi. */
+.hero-intro h1 { margin:0; font-family:var(--display); font-size:clamp(2.6rem,7.4vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.035em; text-transform:none; text-shadow:none; }
 .hero-intro h1 em { font-family:var(--hand); font-size:.8em; color:var(--lime); font-weight:400; }
 .hero-intro .eyebrow { color:var(--lime); }
 .hero-intro > p:not(.eyebrow) { max-width:46ch; margin:1.5rem 0; font-size:clamp(1rem,1.4vw,1.2rem); font-weight:500; line-height:1.65; }
@@ -475,7 +481,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 @media (max-width:600px) {
   .hero-sticky { padding-top:6.5rem; padding-bottom:7rem; }
   .hero-intro h1,.hero-intro .paint-title { font-size:clamp(2rem,8.7vw,3.25rem); line-height:1.16; }
-  .hero-shade { background:linear-gradient(180deg,#1a0f10a6,#1a0f10cc 50%,#1a0f1094); }
+  .hero-shade { background:#1a0f10; opacity:calc(var(--shade-opacity,1) * .72); }
   .hero-intro > p:not(.eyebrow) { margin:1rem 0 1.5rem; }
   .statement,.experience-head { min-height:0; }
   .benefit { grid-template-columns:minmax(0,1fr); }
