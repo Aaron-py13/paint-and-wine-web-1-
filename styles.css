@@ -146,7 +146,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
    0.151, pero hay puntos casi blancos (lienzos) de 0.977. Un velo
    uniforme al 68% deja el titular por encima de 4.5:1 en la mayor
    parte; los lienzos claros siguen siendo el punto debil.            */
-.hero-shade { position:absolute; inset:0; background:#1a0f10; opacity:calc(var(--shade-opacity,1) * .68); }
+.hero-shade { position:absolute; inset:0; background:#0d0d0d; opacity:calc(var(--shade-opacity,1) * .68); }
 .hero-wash { position:absolute; inset:0; background:var(--cream); opacity:var(--wash-opacity,0); pointer-events:none; }
 .hero-intro { position:relative; z-index:4; width:min(100%,950px); color:var(--cream); opacity:var(--intro-opacity,1); transform:translateY(var(--intro-y,0px)); }
 /* Caja de frase, NO mayusculas: la clienta lo pidio asi. */
@@ -481,7 +481,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 @media (max-width:600px) {
   .hero-sticky { padding-top:6.5rem; padding-bottom:7rem; }
   .hero-intro h1,.hero-intro .paint-title { font-size:clamp(2rem,8.7vw,3.25rem); line-height:1.16; }
-  .hero-shade { background:#1a0f10; opacity:calc(var(--shade-opacity,1) * .72); }
+  .hero-shade { background:#0d0d0d; opacity:calc(var(--shade-opacity,1) * .72); }
   .hero-intro > p:not(.eyebrow) { margin:1rem 0 1.5rem; }
   .statement,.experience-head { min-height:0; }
   .benefit { grid-template-columns:minmax(0,1fr); }
