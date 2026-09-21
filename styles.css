@@ -58,7 +58,6 @@
 
   --radio:56px;      /* tarjetas, fotos, contenedores. La clienta lo quiere mas
                         redondo y menos generico. Paquetes y redes van aparte. */
-                        lo pidio "no tan recto". Paquetes queda aparte, en 28px. */
   --radio-sm:28px;   /* version movil y piezas pequenas */
 
   --gutter:clamp(1.25rem,5vw,7rem);
