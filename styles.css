@@ -1,66 +1,40 @@
-/* ============================================================
-   PAINT & WINE — HOJA DE ESTILOS
-   Reemplaza el styles.css completo por este archivo.
+/* PAINT & WINE — CSS COMPLETO
+   Reemplaza el contenido de styles.css por este archivo.
+   Fuentes: Awesome Serif (titulares), Comico (acentos artísticos),
+   Bankside Sans (lectura y controles).
+   Logo: assets/logo-paint-wine.png, PNG con transparencia real.
+   Conserva las clases del HTML y los efectos controlados por script.js.
+*/
 
-   CAMBIOS DE ESTA VERSIÓN (identidad visual):
-   1. Las CUATRO tipografías del manual, cada una con su papel.
-      Comico ya no se usa en todos los títulos.
-   2. Paleta oficial con los valores REALES del PDF.
-      (La página 8 del manual repite el crema en las 8 muestras
-       y etiqueta seis como "Amarillo": son erratas del manual.)
-   3. El verde pasa de 5 secciones a 1. Crema y guinda dominan.
-   4. Corregidos dos contrastes que no pasaban AA (coral + blanco).
-   5. Énfasis por peso de Bankside. Minion queda fuera (reunión 18/09).
-
-   NO PEGAR PARCHES AL FINAL DE ESTE ARCHIVO.
-   Si algo hay que cambiar, se edita en su sitio.
-   ============================================================ */
-
-/* ============================================================
-   LAS CUATRO TIPOGRAFÍAS DEL MANUAL
-   Los archivos van en assets/fonts/
-   ============================================================ */
-
-/* TITULARES — Awesome Serif Light Extra Tall */
 @font-face {
   font-family: "Awesome Serif";
-  src: url("assets/fonts/AwesomeSerif-LightExtraTall.woff2") format("woff2"),
-       url("assets/fonts/AwesomeSerif-LightExtraTall.otf") format("opentype");
+  src: url("assets/fonts/AwesomeSerif-LightExtraTall.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
-/* TEXTO Y PÁRRAFOS — Bankside Sans (variable) */
 @font-face {
   font-family: "Bankside Sans";
-  src: url("assets/fonts/BanksideSansVF.woff2") format("woff2-variations"),
-       url("assets/fonts/BanksideSansVF.ttf") format("truetype-variations");
+  src: url("assets/fonts/BanksideSansVF_Trial_WdthWght.ttf") format("truetype");
   font-weight: 100 900;
-  /* Bankside trae dos ejes: wght y wdth. Sin declarar font-stretch el
-     navegador ignora el eje de ancho y la fuente queda a medias.        */
+  
   font-stretch: 40% 160%;
   font-style: normal;
   font-display: swap;
 }
 
-/* FRASES ARTÍSTICAS — Comico */
 @font-face {
   font-family: "Comico";
-  src: url("assets/fonts/Comico-Regular.woff2") format("woff2"),
-       url("assets/fonts/Comico-Regular.otf") format("opentype");
+  src: url("assets/fonts/Comico-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* Minion Variable queda FUERA de la web (reunion 18/09/2026):
-   "no la usan mucho... la indicacion final quedo en Asom Serif +
-   Comico Regular + B-Side". El enfasis se resuelve con el eje de
-   peso de Bankside, que va de 100 a 900.                          */
-
+/* PALETA Y VARIABLES */
 :root {
-  /* ---- PALETA OFICIAL (valores reales muestreados del PDF) ---- */
+  
   --crema:#fffcf8;
   --guinda:#600716;
   --verde:#003732;
@@ -71,7 +45,6 @@
   --piedra:#b8b0ab;
   --ink:#171716;
 
-  /* ---- Alias: el resto del archivo sigue funcionando igual ---- */
   --cream:var(--crema);
   --wine:var(--guinda);
   --green:var(--verde);
@@ -79,19 +52,13 @@
   --sky:var(--celeste);
   --blue:var(--azul);
 
-  /* ---- CADA TIPOGRAFÍA CON SU PAPEL ---- */
-  --display:"Awesome Serif",Georgia,serif;                   /* titulares */
-  --body:"Bankside Sans","Helvetica Neue",Arial,sans-serif;  /* párrafos, botones, formulario */
-  --hand:"Comico","Comic Sans MS",cursive;                   /* frases artísticas */
+  --display:"Awesome Serif",Georgia,serif;                   
+  --body:"Bankside Sans","Helvetica Neue",Arial,sans-serif;  
+  --hand:"Comico",cursive;                   
 
-  /* ---- FORMA: cuadrado de esquinas redondeadas (pedido de la clienta) ---- */
-  --radio:28px;      /* tarjetas, fotos, contenedores. Acta 18/09: "un poco mas
-                        redondeados". De 22 a 28: se nota, sin volverse capsula. */
-  --radio-sm:18px;   /* version movil y piezas pequenas (era 14) */
+  --radio:28px;      
+  --radio-sm:18px;   
 
-  /* MARGEN LATERAL. El tope sube de 6rem a 7rem: en pantallas de laptop y
-     PC el sitio respiraba poco a los costados. En movil no cambia nada,
-     porque debajo de 400px manda el minimo de 1.25rem, no el 5vw.        */
   --gutter:clamp(1.25rem,5vw,7rem);
   --header-height:76px;
 }
@@ -108,7 +75,6 @@ button { cursor:pointer; }
 h1,h2,h3,p,blockquote { overflow-wrap:break-word; }
 section,article,form,nav,figure { min-width:0; }
 
-/* El anclaje ya no queda debajo del header fijo. */
 section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 
 :focus-visible { outline:3px solid var(--blue); outline-offset:5px; }
@@ -118,41 +84,64 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .section-pad { padding:clamp(3.5rem,8vw,9rem) var(--gutter); }
 .button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; max-width:100%; padding:.8rem 1.35rem; border:1px solid currentColor; border-radius:99px; font-weight:500; text-align:center; line-height:1.4; transition:transform .2s,background .2s; }
 .button-light { background:var(--lime); border-color:var(--lime); color:var(--green); }
-/* CONTRASTE: coral + blanco daba 3.0:1. Con tinta sube a 5.8:1. */
+
 .button-coral { border:0; background:var(--coral); color:var(--ink); }
 
-/* NAVEGACIÓN: se oculta al salir del inicio. */
+/* NAVEGACIÓN */
 .site-header { position:fixed; z-index:100; inset:0 0 auto; min-height:var(--header-height); display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.6rem var(--gutter); color:var(--cream); transition:transform .3s,opacity .3s,background .3s; }
 .site-header.is-scrolled { background:rgba(96,7,22,.94); }
 .site-header.is-hidden { transform:translateY(-110%); opacity:0; visibility:hidden; pointer-events:none; }
-.brand { display:inline-flex; flex-wrap:wrap; align-items:baseline; gap:.28rem; font-family:var(--display); font-size:clamp(1rem,2vw,1.35rem); letter-spacing:-.04em; line-height:1.2; }
-.brand em { font-family:var(--hand); font-size:1.25em; font-weight:400; font-style:normal; }
+
+.site-header 
+
+/* LOGO ORIGINAL. Compatible con el HTML de texto y con un <img>.
+   Los enlaces conservan su nombre accesible mediante aria-label. */
+.brand {
+  display:inline-flex;
+  position:relative;
+  align-items:center;
+  width:clamp(145px,16vw,190px);
+  height:50px;
+  max-width:100%;
+  min-width:0;
+  line-height:0;
+}
+.brand::before {
+  content:"";
+  display:block;
+  width:100%;
+  height:100%;
+  background:url("assets/logo-paint-wine.png") center / contain no-repeat;
+  pointer-events:none;
+}
+.brand > span,
+.brand > em,
+.brand > img { display:none; }
 .site-header .brand { flex-shrink:0; }
-/* Cuando pongas el logotipo original como imagen, esta regla lo encaja. */
-.brand img { width:auto; height:clamp(30px,4vw,42px); max-width:none; object-fit:contain; }
+.site-header .brand::before,
+.site-footer .brand::before { filter:brightness(0) invert(1); }
+.site-footer .footer-brand {
+  width:clamp(200px,28vw,360px);
+  height:auto;
+  aspect-ratio:3 / 1;
+}
+.site-footer .footer-brand::before { position:absolute; inset:0; }
+
 .main-nav { display:flex; align-items:center; gap:.3rem; padding:.4rem; border:1px solid rgba(241,243,169,.35); border-radius:99px; background:rgba(96,7,22,.92); color:var(--cream); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); box-shadow:0 8px 28px #0003; }
 .main-nav a { display:block; padding:.7rem 1rem; min-height:44px; border-radius:99px; font-size:.875rem; line-height:1.4; }
-/* CONTRASTE: mismo caso que .button-coral. */
+
 .main-nav .nav-cta { background:var(--coral); color:var(--ink); font-weight:700; }
 .menu-toggle { display:none; color:var(--cream); background:var(--guinda); border:1px solid #f1f3a980; border-radius:99px; min-height:44px; padding:.6rem 1rem; }
 .main-nav a:focus-visible,.menu-toggle:focus-visible { outline-color:var(--lime); }
 
-/* PORTADA: flujo normal en móvil; escena sticky solo con espacio suficiente. */
+/* PORTADA Y PINCEL */
 .cinematic-hero { background:var(--cream); }
 .hero-sticky { position:relative; min-height:100vh; min-height:100svh; display:flex; align-items:center; padding:7rem var(--gutter) 6rem; overflow:hidden; background:var(--cream); }
 .hero-background { position:absolute; inset:0; height:100%; object-fit:cover; object-position:center; transform:scale(var(--hero-scale,1)) translateY(var(--hero-y,0%)); }
-/* Velo sobre la fotografía. Es un oscurecido neutro, no un bloque de color. */
-/* VELO PLANO, SIN DEGRADADO (pedido de la clienta).
-   Medido sobre la foto real: detras del texto la luminancia media es
-   0.151, pero hay puntos casi blancos (lienzos) de 0.977. Un velo
-   uniforme al 68% deja el titular por encima de 4.5:1 en la mayor
-   parte; los lienzos claros siguen siendo el punto debil.            */
+
 .hero-shade {
   position:absolute; inset:0;
-  /* VELO DIRECCIONAL. Antes era plano al 68%: apagaba la foto entera para
-     salvar el texto. Ahora el negro se concentra donde estan las letras
-     (izquierda) y se desvanece a la derecha, donde la foto se ve limpia.
-     Neutro #0d0d0d, sin tinte guinda. */
+  
   background:
     linear-gradient(100deg,
       rgba(13,13,13,.88) 0%,
@@ -164,24 +153,58 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 }
 .hero-wash { position:absolute; inset:0; background:var(--cream); opacity:var(--wash-opacity,0); pointer-events:none; }
 .hero-intro { position:relative; z-index:4; width:min(100%,950px); color:var(--cream); opacity:var(--intro-opacity,1); transform:translateY(var(--intro-y,0px)); }
-/* Caja de frase, NO mayusculas: la clienta lo pidio asi. */
-.hero-intro h1 { margin:0; font-family:var(--display); font-size:clamp(2.6rem,7.4vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.035em; text-transform:none; text-shadow:none; }
-.hero-intro h1 em { font-family:var(--hand); font-size:.8em; color:var(--lime); font-weight:400; }
+
+.hero-intro h1 { margin:0; font-family:var(--display); font-size:clamp(2.6rem,7.4vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.035em; text-transform:uppercase; text-shadow:none;  font-style:normal; }
+.hero-intro h1 em { font-family:inherit; font-size:inherit; color:var(--lime); font-weight:inherit;  font-style:normal; }
 .hero-intro .eyebrow { color:var(--lime); }
 .hero-intro > p:not(.eyebrow) { max-width:46ch; margin:1.5rem 0; font-size:clamp(1rem,1.4vw,1.2rem); font-weight:500; line-height:1.65; }
-.hero-logo-mask { position:absolute; z-index:5; inset:0; display:none; align-items:center; justify-content:center; flex-wrap:wrap; align-content:center; gap:.5rem; padding:var(--gutter); background:url("assets/hero.webp") center/cover; -webkit-background-clip:text; background-clip:text; color:transparent; opacity:var(--logo-opacity,0); transform:scale(var(--logo-scale,.7)); pointer-events:none; }
-.hero-logo-mask span { font-family:var(--display); font-size:clamp(2rem,12vw,13rem); letter-spacing:-.065em; line-height:1.1; }
-.hero-logo-mask em { font-family:var(--hand); font-size:clamp(2rem,12vw,13rem); line-height:1.1; font-style:normal; }
+
+/* Aparición cinemática: conserva las variables y clases del JS. */
+.hero-logo-mask {
+  position:absolute;
+  z-index:5;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:var(--gutter);
+  opacity:var(--logo-opacity,0);
+  transform:scale(var(--logo-scale,.7));
+  pointer-events:none;
+}
+.hero-logo-mask > span,
+.hero-logo-mask > em,
+.hero-logo-mask > img { display:none; }
+.hero-logo-mask::before {
+  content:"";
+  position:absolute;
+  inset:var(--gutter);
+  background:url("assets/logo-paint-wine.png") center / contain no-repeat;
+}
+@supports ((mask-image:url("assets/logo-paint-wine.png")) or (-webkit-mask-image:url("assets/logo-paint-wine.png"))) {
+  .hero-logo-mask::before {
+    background:url("assets/hero.webp") center / cover no-repeat;
+    -webkit-mask-image:url("assets/logo-paint-wine.png");
+    mask-image:url("assets/logo-paint-wine.png");
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    mask-position:center;
+    -webkit-mask-size:contain;
+    mask-size:contain;
+  }
+}
+
 .scroll-cue { position:absolute; z-index:7; left:50%; bottom:1.4rem; width:max-content; max-width:90%; display:flex; flex-direction:column; align-items:center; gap:.5rem; color:white; font-size:.68rem; letter-spacing:.12em; text-align:center; text-transform:uppercase; transform:translateX(-50%); opacity:var(--cue-opacity,1); pointer-events:none; }
 .scroll-cue span { width:1px; height:28px; background:currentColor; animation:cue 1.7s ease-in-out infinite; }
 @keyframes cue { 50% { transform:scaleY(.35); } }
 .hero-intro .paint-title { max-width:100%; width:fit-content; font-size:clamp(2.4rem,6.5vw,7rem); line-height:1.14; }
 .paint-line { position:relative; display:table; max-width:100%; }
 .paint-words { display:block; padding:.04em .08em .1em 0; }
-/* Pincel SVG: la punta viaja sobre el borde del texto que se va revelando. */
+
 .paint-brush { position:absolute; z-index:3; left:0; top:50%; height:1.65em; width:auto; aspect-ratio:60/220; opacity:0; pointer-events:none; transform-origin:50% 100%; transform:translate(-50%,-91%) rotate(34deg); }
 .paint-brush svg { display:block; width:100%; height:100%; filter:drop-shadow(0 6px 7px rgba(0,0,0,.32)); }
-/* Pintura fresca justo en el borde. */
+
 .paint-line::after { content:""; position:absolute; z-index:2; top:50%; left:0; width:.5em; height:.42em; transform:translate(-62%,-48%); background:linear-gradient(90deg,transparent,rgba(255,252,248,.28)); filter:blur(5px); opacity:0; pointer-events:none; }
 .paint-line:nth-child(1) { --paint-delay:.15s; }
 .paint-line:nth-child(2) { --paint-delay:1.25s; }
@@ -190,14 +213,14 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .is-painting .paint-brush { animation:paint-pass 1.15s cubic-bezier(.42,.02,.58,1) var(--paint-delay,0s) both; }
 .is-painting .paint-brush svg { animation:brush-wobble 1.15s ease-in-out var(--paint-delay,0s) both; }
 .is-painting .paint-line::after { animation:paint-wet 1.15s cubic-bezier(.42,.02,.58,1) var(--paint-delay,0s) both; }
-/* El borde no es recto: imita el filo irregular de las cerdas. */
+
 @keyframes paint-reveal {
   0% { clip-path:polygon(-4% -14%, -0.6% -14%, -1.4% 26%, -0.4% 56%, -1.2% 114%, -4% 114%); }
   100% { clip-path:polygon(-4% -14%, 103% -14%, 102.2% 26%, 103.8% 56%, 102.6% 114%, -4% 114%); }
 }
 @keyframes paint-pass { 0% { left:0; opacity:0; } 7%,92% { opacity:1; } 100% { left:100%; opacity:0; } }
 @keyframes paint-wet { 0% { left:0; opacity:0; } 10% { opacity:.5; } 85% { opacity:.3; } 100% { left:100%; opacity:0; } }
-/* Pulso de muñeca: el trazo no es perfectamente recto. */
+
 @keyframes brush-wobble {
   0% { transform:rotate(-5deg) translateY(2%); }
   18% { transform:rotate(2deg) translateY(-1.5%); }
@@ -208,57 +231,43 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 }
 
 /* HISTORIA Y EXPERIENCIA */
-/* GUINDA (antes verde) */
 .statement { min-height:65vh; display:grid; align-content:center; background:var(--guinda); color:var(--amarillo); }
 .statement p { margin:0 0 1rem; font-size:clamp(1rem,2vw,1.5rem); }
-.statement h2 { max-width:1100px; margin:0; font-family:var(--display); font-size:clamp(2.6rem,7vw,8rem); font-weight:300; line-height:1.08; letter-spacing:-.05em; }
+.statement h2 { max-width:1100px; margin:0; font-family:var(--display); font-size:clamp(2.6rem,7vw,8rem); font-weight:300; line-height:1.08; letter-spacing:-.05em;  font-style:normal;  text-transform:uppercase; }
 .statement h2 em { font-family:var(--hand); color:var(--coral); font-weight:400; }
 .story { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
 .story-visual { position:relative; min-width:0; }
 .story-photo-wrap { position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; background:var(--blue); }
 
-/* El cambio de foto ahora sí usa la transición: el JS pone .is-fading,
-   cambia el src y la quita cuando la nueva imagen ya cargó. */
 .story-photo-wrap img { height:100%; object-fit:cover; opacity:1; transition:opacity .28s ease; }
 .story-photo-wrap img.is-fading { opacity:0; }
 
 .photo-note { position:absolute; left:1rem; right:1rem; bottom:1rem; width:fit-content; padding:.6rem 1rem; border-radius:24px; background:var(--lime); font-size:.76rem; }
 .story-copy { min-width:0; padding:0 var(--gutter); }
-/* ALTO DE CADA BLOQUE DE HISTORIA.
-   Estaba en 90vh: con ~250px de texto dejaba ~560px de aire muerto.
-   A 48vh el hueco baja a ~180px y la foto sticky sigue teniendo
-   recorrido de sobra (3 bloques x 48vh = 144vh contra 100vh de foto). */
+
 .story-step { min-height:48vh; display:flex; flex-direction:column; justify-content:center; padding:2.5rem 0; }
 .story-step > span { margin-bottom:1rem; color:var(--coral); font-family:var(--display); font-size:1.5rem; }
-/* TITULO DE HISTORIA -> Comico.
-   Comico es UNICASE: todo sale en mayusculas. Medido con la frase real,
-   ocupa 49% mas ancho que Awesome Serif al mismo tamano. Por eso el
-   cuerpo BAJA a ~72%, no sube. Asi ocupa las mismas lineas que antes.
-   Interlineado 1.12: en caja alta no hacen falta 1.16.                 */
-.story-step h2 { margin:0 0 1.5rem; font-family:var(--hand); font-size:clamp(1.75rem,3.25vw,4rem); font-weight:400; font-style:normal; line-height:1.12; letter-spacing:0; }
+
+.story-step h2 { margin:0 0 1.5rem; font-family:var(--display); font-size:clamp(1.75rem,3.25vw,4rem); font-weight:300; font-style:normal; line-height:1.12; letter-spacing:0;  text-transform:uppercase; }
 .story-step > p:last-child { max-width:580px; font-size:clamp(1rem,1.4vw,1.18rem); }
 .founder { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); align-items:center; gap:clamp(2rem,6vw,7rem); background:var(--coral); }
 .founder-image { position:relative; max-width:600px; min-width:0; margin:0; }
 .founder-image img { position:relative; z-index:2; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radio); }
 .paint-mark { position:absolute; z-index:1; inset:10% -3% -3% 5%; background:var(--lime); transform:rotate(-3deg); }
 .founder-copy { min-width:0; }
-.founder-copy h2 { margin:0; font-family:var(--display); font-size:clamp(3.5rem,8vw,9rem); font-weight:300; line-height:1.05; letter-spacing:-.06em; }
+.founder-copy h2 { margin:0; font-family:var(--display); font-size:clamp(3.5rem,8vw,9rem); font-weight:300; line-height:1.05; letter-spacing:-.06em;  font-style:normal;  text-transform:uppercase; }
 .founder-copy h2 em { font-family:var(--hand); font-weight:400; }
 .founder-copy > p:not(.eyebrow) { margin:1.5rem 0; font-size:1.1rem; }
-.founder-copy blockquote { margin:1.5rem 0 0; padding-top:1.5rem; border-top:1px solid #1717164d; font-family:var(--display); font-size:clamp(1.5rem,2.5vw,2.4rem); }
+.founder-copy blockquote { margin:1.5rem 0 0; padding-top:1.5rem; border-top:1px solid #1717164d; font-family:var(--body); font-size:clamp(1.5rem,2.5vw,2.4rem); }
 .experience-head { min-height:55vh; display:grid; align-content:end; background:var(--guinda); color:var(--cream); }
-.experience-head h2 { max-width:1050px; margin:0; font-family:var(--display); font-size:clamp(2.8rem,7vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.05em; }
-/* TARJETAS DE BENEFICIO.
-   El gap era fijo en 2rem: en PC dejaba el titulo pegado a la foto (unos
-   30px de aire). Ahora escala con el ancho y llega a 6rem en pantalla
-   grande. La columna del numero baja de .3fr a .22fr porque "01" nunca
-   necesito 200px. En movil el clamp cae a 1.5rem, igual que antes.       */
+.experience-head h2 { max-width:1050px; margin:0; font-family:var(--display); font-size:clamp(2.8rem,7vw,8rem); font-weight:300; line-height:1.06; letter-spacing:-.05em;  font-style:normal;  text-transform:uppercase; }
+
 .benefit { display:grid; grid-template-columns:max-content minmax(0,1fr) minmax(0,1.05fr); align-items:center; column-gap:clamp(1.5rem,3.5vw,4rem); row-gap:1.5rem; padding:clamp(3rem,6vw,6rem) var(--gutter); }
 .benefit-lime { background:var(--lime); } .benefit-sky { background:var(--sky); } .benefit-coral { background:var(--coral); }
 .benefit-number { align-self:start; font-family:var(--display); font-size:clamp(3rem,7vw,8rem); line-height:1; opacity:.55; }
 .benefit-copy { min-width:0; }
 .benefit-copy p { font-size:.85rem; letter-spacing:.1em; text-transform:uppercase; }
-/* TITULO DE BENEFICIO -> Comico, misma correccion de ancho (~72%). */
+
 .benefit-copy h3 { margin:0; font-family:var(--hand); font-size:clamp(1.7rem,3.1vw,3.6rem); font-weight:400; font-style:normal; line-height:1.12; letter-spacing:0; }
 .benefit img { height:auto; max-height:700px; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radio); }
 
@@ -269,7 +278,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .proof-stat > span { max-width:11ch; font-size:clamp(1rem,2vw,1.5rem); }
 .brand-wall { margin-top:clamp(3rem,7vw,7rem); min-width:0; }
 .brand-wall-heading { display:grid; grid-template-columns:minmax(0,.55fr) minmax(0,1.45fr); gap:2rem; align-items:end; margin-bottom:2rem; }
-.brand-wall-heading h3 { margin:0; font-family:var(--display); font-size:clamp(2rem,4.3vw,4.6rem); font-weight:300; line-height:1.08; letter-spacing:-.04em; }
+.brand-wall-heading h3 { margin:0; font-family:var(--display); font-size:clamp(2rem,4.3vw,4.6rem); font-weight:300; line-height:1.08; letter-spacing:-.04em;  text-transform:none; }
 .brands-carousel { width:100%; overflow-x:auto; padding:1.5rem 0; border-block:1px solid #1717161f; background:#fdfaf6; }
 .brands-track { display:flex; width:max-content; align-items:center; }
 .brands-list { display:flex; flex-shrink:0; align-items:center; gap:clamp(1.5rem,4vw,4rem); margin:0; padding:0 clamp(1.5rem,4vw,4rem) 0 0; list-style:none; }
@@ -280,18 +289,16 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .brands-carousel:is(:hover,:focus-within) .brands-track { animation-play-state:paused; }
 @keyframes brands-loop { to { transform:translateX(-50%); } }
 
-/* Control de pausa del carrusel (WCAG 2.2.2: el hover no basta en táctil). */
 .brand-wall-controls { display:flex; justify-content:flex-end; margin-top:.9rem; }
 .brands-pause { min-height:44px; padding:.5rem 1.1rem; border:1px solid #17171638; border-radius:99px; background:transparent; color:inherit; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; transition:background .2s,border-color .2s; }
 .brands-carousel.is-paused .brands-track { animation-play-state:paused !important; }
 
-/* PAQUETES: todos accesibles en flujo normal; horizontal solo si caben.
-   ESTA ES LA ÚNICA SECCIÓN EN VERDE. */
+/* PAQUETES */
 .packages-scroll { background:var(--verde); color:var(--cream); padding:clamp(3rem,6vw,6rem) 0; }
 .packages-sticky { min-width:0; }
 .packages-heading { display:flex; justify-content:space-between; align-items:end; gap:2rem; padding:0 var(--gutter) 1rem; }
 .packages-heading > div { min-width:0; }
-.packages-heading h2 { margin:0; font-family:var(--display); font-size:clamp(2.4rem,4.5vw,5.5rem); font-weight:300; line-height:1.08; }
+.packages-heading h2 { margin:0; font-family:var(--display); font-size:clamp(2.4rem,4.5vw,5.5rem); font-weight:300; line-height:1.08;  font-style:normal;  text-transform:uppercase; }
 .package-selector { flex:0 1 510px; min-width:0; }
 .package-selector > p { margin:0 0 .7rem; font-size:.9rem; }
 .group-options { display:flex; flex-wrap:wrap; gap:.45rem; }
@@ -307,7 +314,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .package-image img { height:100%; object-fit:cover; }
 .package-content { min-width:0; display:flex; flex-direction:column; padding:clamp(1.25rem,3vw,3rem); }
 .package-content > span { font-family:var(--display); font-size:1.4rem; margin-bottom:1.5rem; }
-.package-content h3 { margin:0 0 .4rem; font-family:var(--display); font-size:clamp(2.6rem,5vw,5.5rem); font-weight:300; letter-spacing:-.045em; line-height:1.06; }
+.package-content h3 { margin:0 0 .4rem; font-family:var(--display); font-size:clamp(2.6rem,5vw,5.5rem); font-weight:300; letter-spacing:-.045em; line-height:1.06;  text-transform:none; }
 .package-card .package-price { display:block; font-family:var(--body); font-size:clamp(1.8rem,2.8vw,3.2rem); font-weight:500; font-variant-numeric:tabular-nums; letter-spacing:-.025em; line-height:1.2; color:var(--ink); background:none; border:0; padding:0; box-shadow:none; }
 .package-content p { margin:.8rem 0; font-size:1rem; line-height:1.5; }
 .package-content small { display:block; font-size:.82rem; line-height:1.55; }
@@ -315,7 +322,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .package-content a { align-self:flex-start; min-height:44px; padding:.5rem 0; border-bottom:1px solid currentColor; font-weight:500; }
 .package-terms { display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; padding:1rem var(--gutter) 0; font-size:.8rem; }
 .package-terms strong { color:var(--lime); }
-/* La altura la calcula el JS con window.innerHeight: se mantiene vh para no desincronizar. */
+
 .packages-scroll.is-horizontal { height:var(--packages-height); padding:0; }
 .is-horizontal .packages-sticky { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; padding:1.5rem 0; }
 .is-horizontal .packages-track { display:flex; flex:none; width:max-content; }
@@ -324,20 +331,20 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 /* PERSONALIZACIÓN */
 .custom { background:var(--coral); }
 .custom-title { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:3rem; }
-.custom-title h2 { max-width:850px; margin:0; font-family:var(--display); font-size:clamp(2.8rem,6vw,7rem); font-weight:300; line-height:1.06; letter-spacing:-.05em; }
+.custom-title h2 { max-width:850px; margin:0; font-family:var(--display); font-size:clamp(2.8rem,6vw,7rem); font-weight:300; line-height:1.06; letter-spacing:-.05em;  font-style:normal;  text-transform:uppercase; }
 .custom-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; }
 .custom-card { position:relative; min-width:0; margin:0; }
 .custom-card:nth-child(even) { margin-top:3rem; }
 .custom-card img { aspect-ratio:3/4; object-fit:cover; border-radius:var(--radio); box-shadow:0 10px 25px #0037321f; transition:filter .3s,box-shadow .3s; }
-.custom-card > span { display:block; margin-top:.85rem; font-family:var(--display); font-size:1.4rem; font-weight:400; line-height:1.3; }
+.custom-card > span { display:block; margin-top:.85rem; font-family:var(--display); font-size:1.4rem; font-weight:300; line-height:1.3;  text-transform:none; }
 .custom-card::after { content:""; position:absolute; top:0; left:0; width:100%; aspect-ratio:3/4; border-radius:var(--radio); pointer-events:none; background:linear-gradient(115deg,transparent 35%,#ffffff66 50%,transparent 65%) 100% 0/350% 100% no-repeat; opacity:0; }
 .custom-card.is-visible::after { animation:custom-shine 1.4s ease both; }
 @keyframes custom-shine { 20%,80% { opacity:1; } to { opacity:0; background-position:0% 0; } }
 
-/* GALERÍA: grid con altura real, sin fotografías fuera de la sección. */
+/* GALERÍA */
 .gallery { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); align-items:start; gap:clamp(2rem,4vw,4rem); padding:clamp(4rem,8vw,9rem) var(--gutter); background:var(--cream); }
 .gallery-copy { position:sticky; top:4rem; min-width:0; }
-.gallery-copy h2 { margin:0; font-family:var(--display); font-size:clamp(3rem,7.3vw,8rem); font-weight:300; line-height:1.05; letter-spacing:-.06em; }
+.gallery-copy h2 { margin:0; font-family:var(--display); font-size:clamp(3rem,7.3vw,8rem); font-weight:300; line-height:1.05; letter-spacing:-.06em;  font-style:normal;  text-transform:uppercase; }
 .gallery-copy h2 em { font-family:var(--hand); font-weight:400; color:var(--blue); }
 .gallery-copy > p:last-child { max-width:40ch; margin-top:1.5rem; font-size:1.1rem; }
 .gallery-images { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:1rem; min-width:0; }
@@ -351,14 +358,12 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .gallery-copy.reveal.is-visible { animation:none; }
 @keyframes enter { from { opacity:0; } to { opacity:1; } }
 
-/* RESERVA — GUINDA (antes verde) */
+/* RESERVA */
 .booking { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:center; gap:clamp(2rem,5vw,6rem); padding:clamp(4rem,8vw,8rem) var(--gutter); background:radial-gradient(ellipse at 5% 10%,#5f86ff3d,transparent 55%),var(--guinda); color:var(--cream); }
 .booking-copy { min-width:0; }
 .booking-copy .eyebrow { display:inline-block; padding:.6rem 1rem; border:1px solid #f1f3a973; border-radius:99px; color:var(--lime); }
-/* TITULO DE RESERVA -> Bankside. Su x es 0.474 contra 0.540, asi que
-   sube +14% para pesar igual en pantalla. Peso 600: a tamano display
-   una grotesca en Light se ve anemica.                             */
-.booking-copy h2 { max-width:16ch; margin:0; font-family:var(--body); font-size:clamp(2.9rem,5.6vw,6.7rem); font-weight:600; line-height:1.08; letter-spacing:-.03em; }
+
+.booking-copy h2 { max-width:16ch; margin:0; font-family:var(--display); font-size:clamp(2.9rem,5.6vw,6.7rem); font-weight:300; line-height:1.08; letter-spacing:-.03em;  font-style:normal;  text-transform:uppercase; }
 .booking-copy h2::after { content:""; display:block; width:7rem; height:6px; margin-top:1.5rem; border-radius:99px; background:linear-gradient(90deg,var(--lime),var(--blue)); }
 .booking-copy > p:not(.eyebrow) { max-width:42ch; margin-top:1.5rem; color:#efe2e4; }
 .booking-copy .contact-line { padding-top:1.25rem; border-top:1px solid #fffcf833; color:var(--lime); }
@@ -369,14 +374,14 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .booking-form input[type=date] { -webkit-appearance:none; appearance:none; }
 .booking-form input::-webkit-date-and-time-value { text-align:left; min-height:1.4em; }
 .booking-form input:focus,.booking-form select:focus { outline:2px solid #405bd5; outline-offset:2px; }
-/* Mensaje de ayuda opcional bajo un campo (por ejemplo el mínimo de personas). */
+
 .field-hint { margin:-.75rem 0 1.25rem; font-size:.8rem; color:#5a3d43; }
 .form-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
 .booking-form .button { width:100%; min-height:56px; border:1px solid var(--guinda); border-radius:14px; background:var(--guinda); color:var(--lime); }
 
-/* REDES — GUINDA (antes verde) */
+/* PIE DE PÁGINA Y REDES */
 .site-footer { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:center; gap:3rem; padding:clamp(3rem,6vw,7rem) var(--gutter) 7rem; background:var(--guinda); color:var(--cream); }
-.footer-brand { font-size:clamp(2.8rem,5vw,6rem); line-height:1.15; }
+
 .social-networks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; min-width:0; }
 .social-link { --social-background:var(--guinda); position:relative; isolation:isolate; display:grid; grid-template-columns:44px minmax(0,1fr) auto; align-items:center; gap:.65rem; min-width:0; min-height:92px; padding:.85rem; border:1px solid #fffcf833; border-radius:var(--radio); background:#ffffff0f; overflow:hidden; transition:transform .3s,box-shadow .3s; }
 .social-link::before { content:""; position:absolute; z-index:-1; inset:0; background:var(--social-background); opacity:0; transition:opacity .3s; }
@@ -396,11 +401,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .footer-bottom p { margin:0; color:#fffcf8b3; }
 .site-footer > p { grid-column:1/-1; }
 
-/* ============================================================
-   WHATSAPP / MONA LISA — bloque único
-   El elemento lleva las clases .whatsapp-art .monalisa-contact.
-   La visibilidad la controla script.js con el atributo [hidden].
-   ============================================================ */
+/* MONA LISA / WHATSAPP */
 .whatsapp-art {
   position:fixed; z-index:99;
   right:max(16px,env(safe-area-inset-right));
@@ -413,20 +414,20 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   transform-origin:center bottom;
   animation:monalisa-entrada 1s cubic-bezier(.16,1,.3,1) both;
 }
-/* Halo verde discreto detrás de la figura. */
+
 .whatsapp-art::before {
   content:""; position:absolute; z-index:-1;
   inset:28% 10% 0; border-radius:50%;
   background:radial-gradient(ellipse,rgba(37,211,102,.22),transparent 70%);
   filter:blur(8px); pointer-events:none;
 }
-/* Capa 1: flota. */
+
 .whatsapp-art .monalisa-float {
   display:block; width:100%; height:100%;
   transform-style:preserve-3d;
   animation:monalisa-flotacion 5s ease-in-out 1s infinite;
 }
-/* Capa 2: gira y reacciona. */
+
 .whatsapp-art img {
   display:block; width:100%; height:100%; object-fit:contain;
   border:0; border-radius:0; background:transparent;
@@ -436,7 +437,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 }
 .whatsapp-art:active img { transform:scale(.95); }
 .whatsapp-art:focus-visible { outline:3px solid var(--lime); outline-offset:5px; }
-/* Salida suave: al apagar la animación de entrada, el transition sí aplica. */
+
 .whatsapp-art.is-leaving {
   animation:none;
   opacity:0; transform:translateY(14px) scale(.9);
@@ -450,7 +451,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 }
 @keyframes monalisa-flotacion { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-4px); } }
 
-/* EFECTOS EXCLUSIVOS DEL MOUSE */
 @media (hover:hover) and (pointer:fine) {
   .button:hover { transform:translateY(-2px); }
   .main-nav a:hover { background:var(--lime); color:var(--guinda); }
@@ -467,16 +467,12 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* ESCRITORIO AMPLIO: el JS comprueba también la altura real del contenido. */
 @media (min-width:1100px) and (min-height:800px) and (prefers-reduced-motion:no-preference) {
   .cinematic-hero.is-cinematic { height:220vh; }
   .is-cinematic .hero-sticky { position:sticky; top:0; height:100vh; min-height:0; }
   .is-cinematic .hero-logo-mask { display:flex; }
 }
-/* PANTALLAS GRANDES (laptop 15", monitores).
-   Todo el resto del archivo son max-width, o sea reglas pensadas para ir
-   achicando desde el movil. Este es el unico bloque que mira hacia arriba:
-   en 1400px o mas el texto deja de estirarse hasta tocar la foto.        */
+
 @media (min-width:1400px) {
   .benefit-copy { padding-right:clamp(1rem,3vw,4rem); }
   .story-copy { padding-right:calc(var(--gutter) + 1.5rem); }
@@ -484,7 +480,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 }
 @media (max-width:1199px) {
   .site-footer { grid-template-columns:minmax(0,1fr); }
-  .footer-brand { font-size:clamp(2.8rem,8vw,6rem); }
+  
   .custom-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:2rem 1.25rem; }
   .custom-card:nth-child(even) { margin-top:2rem; }
 }
@@ -518,8 +514,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 @media (max-width:600px) {
   .hero-sticky { padding-top:6.5rem; padding-bottom:7rem; }
   .hero-intro h1,.hero-intro .paint-title { font-size:clamp(2rem,8.7vw,3.25rem); line-height:1.16; }
-  /* En movil el texto ocupa todo el ancho, asi que un degradado lateral no
-     sirve: aqui el velo baja de arriba hacia abajo y la foto respira arriba. */
+  
   .hero-shade {
     background:linear-gradient(to bottom,
       rgba(13,13,13,.34) 0%,
@@ -548,7 +543,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .gallery-copy h2 { font-size:clamp(2.7rem,12vw,4rem); }
   .form-row { grid-template-columns:minmax(0,1fr); gap:0; }
   .social-info strong { font-size:1.25rem; }
-  .footer-brand { font-size:clamp(2.4rem,11vw,4rem); }
+  
   .whatsapp-art {
     width:95px; height:95px;
     right:max(12px,env(safe-area-inset-right));
@@ -565,7 +560,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .gallery-copy { position:relative; top:auto; }
 }
 
-/* ACCESIBILIDAD: un solo bloque, al final, para que gane siempre. */
 @media (prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto; }
   *,*::before,*::after { animation:none !important; transition:none !important; }
@@ -580,10 +574,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .whatsapp-art.is-leaving { opacity:0; }
 }
 
-/* =========================================
-   VIDEOS DE EXPERIENCIAS
-   ========================================= */
-
+/* VIDEOS DE EXPERIENCIAS */
 .pw-reels {
   padding:
     clamp(3rem, 6vw, 6rem)
@@ -592,18 +583,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   background: var(--crema);
   color: var(--ink);
 }
-
-.pw-reels *,
-.pw-reels *::before,
-.pw-reels *::after {
-  box-sizing: border-box;
-}
-
-.pw-reels [hidden] {
-  display: none !important;
-}
-
-/* Encabezado */
 
 .pw-reels-heading {
   max-width: 1320px;
@@ -635,14 +614,14 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   max-width: 16ch;
   margin: 0;
 
-  font-family: var(--display, Georgia, serif);
+  font-family:var(--display);
   font-size: clamp(2.25rem, 4.8vw, 4.8rem);
-  font-weight: 300;
+  font-weight:300;
   line-height: 1.06;
   letter-spacing: -0.045em;
 
   overflow-wrap: break-word;
-}
+ font-style:normal;  text-transform:uppercase; }
 
 .pw-reels-hint {
   max-width: 25ch;
@@ -651,8 +630,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   font-size: 0.95rem;
   line-height: 1.6;
 }
-
-/* Distribución de tarjetas */
 
 .pw-reels-track {
   max-width: 1320px;
@@ -667,8 +644,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   min-width: 0;
   margin: 0;
 }
-
-/* Contenedor del video */
 
 .pw-reel-media {
   position: relative;
@@ -691,7 +666,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   height: 100%;
   max-width: 100%;
 
-  /* El video se ve completo, sin deformación */
   object-fit: contain;
 
   background: #2a1418;
@@ -701,8 +675,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   object-fit: contain;
   background: #000;
 }
-
-/* Portada y botón */
 
 .pw-reel-start {
   position: absolute;
@@ -733,7 +705,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   width: 100%;
   height: 100%;
 
-  /* Solo la portada se recorta al formato de tarjeta */
   object-fit: cover;
 
   transition: transform 0.55s ease;
@@ -812,8 +783,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   font-weight: 500;
 }
 
-/* Texto debajo */
-
 .pw-reel-caption {
   display: flex;
   flex-wrap: wrap;
@@ -849,8 +818,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   text-decoration: underline;
 }
 
-/* Navegación con teclado */
-
 .pw-reels-track:focus-visible {
   outline: 2px solid var(--guinda);
   outline-offset: 6px;
@@ -866,8 +833,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   outline-offset: -4px;
 }
 
-/* Efecto al pasar el mouse */
-
 @media (hover: hover) and (pointer: fine) {
   .pw-reel-start:hover img {
     transform: scale(1.035);
@@ -879,15 +844,11 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Tablet */
-
 @media (min-width: 701px) and (max-width: 1000px) {
   .pw-reels-track {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
-/* Android y iPhone */
 
 @media (max-width: 700px) {
   .pw-reels-heading {
@@ -927,15 +888,12 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
     height: 56px;
   }
 
-  /* Alternativa: tarjetas apiladas */
   .pw-reels--stack .pw-reels-track {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     overflow: visible;
   }
 }
-
-/* Movimiento reducido */
 
 @media (prefers-reduced-motion: reduce) {
   .pw-reels * {
@@ -948,9 +906,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* REELS: ENTRADA, BRILLO Y PARALLAX */
-
-/* Aparición al entrar en pantalla */
 .pw-reels .pw-fx-enter {
   animation: pw-reels-enter 750ms
     cubic-bezier(0.22, 1, 0.36, 1)
@@ -969,12 +924,10 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Acabado de las tarjetas */
 .pw-reels .pw-reel-media {
   transition: box-shadow 350ms ease;
 }
 
-/* El parallax afecta solo a la imagen de portada */
 @media (min-width: 1001px)
   and (hover: hover)
   and (pointer: fine)
@@ -994,7 +947,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
       scale(1.14);
   }
 
-  /* Reflejo sobre la portada */
   .pw-reels .pw-reel-start::before {
     content: "";
     position: absolute;
@@ -1023,7 +975,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Brillo exterior discreto */
 @media (hover: hover) and (pointer: fine) {
   .pw-reels .pw-reel-media:hover {
     box-shadow:
@@ -1038,7 +989,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
     0 0 0 2px var(--amarillo);
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .pw-reels .pw-fx-enter {
     animation: none !important;
@@ -1056,11 +1006,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* =========================================
-   REELS: TARJETAS QUE SE DESPLIEGAN
-   ========================================= */
-
-/* Primera tarjeta */
 .pw-reels .pw-reel:nth-child(1) {
   --fan-x: -35px;
   --fan-y: 18px;
@@ -1068,7 +1013,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   --fan-delay: 0s;
 }
 
-/* Segunda tarjeta */
 .pw-reels .pw-reel:nth-child(2) {
   --fan-x: 0px;
   --fan-y: 45px;
@@ -1076,7 +1020,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   --fan-delay: 0.5s;
 }
 
-/* Tercera tarjeta */
 .pw-reels .pw-reel:nth-child(3) {
   --fan-x: 35px;
   --fan-y: 18px;
@@ -1084,9 +1027,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   --fan-delay: 1s;
 }
 
-/* Sustituye la animación anterior de las tarjetas.
-   Estos tiempos también reemplazan el retraso
-   de 2 segundos que pusimos antes. */
 .pw-reels .pw-reel.pw-fx-enter {
   transform-origin: center bottom;
 
@@ -1098,7 +1038,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
     both;
 }
 
-/* Entrada y pequeño rebote */
 @keyframes pw-card-unfold {
   0% {
     opacity: 0;
@@ -1137,7 +1076,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Reflejo breve mientras cada tarjeta se acomoda */
 .pw-reels .pw-reel.pw-fx-enter .pw-reel-media {
   animation:
     pw-card-highlight
@@ -1167,7 +1105,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Recupera el brillo al señalar o usar los controles */
 .pw-reels .pw-reel.pw-fx-enter .pw-reel-media:focus-within {
   animation: none;
 
@@ -1186,8 +1123,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Celular y tablet:
-   entrada corta sin desplazamiento lateral */
 @media (max-width: 1000px) {
   .pw-reels .pw-reel:nth-child(n) {
     --fan-x: 0px;
@@ -1201,7 +1136,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .pw-reels .pw-reel.pw-fx-enter,
   .pw-reels .pw-reel.pw-fx-enter .pw-reel-media {
@@ -1211,11 +1145,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   }
 }
 
-/* ============================================================
-   AJUSTE RESPONSIVE FINAL
-   Mantiene los efectos y las clases controladas por script.js.
-   No aplica tamaños genéricos a los controles de los videos.
-   ============================================================ */
 .site-header,
 .packages-heading,
 .package-selector,
@@ -1253,7 +1182,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .contact-line,
 .footer-bottom p { overflow-wrap:anywhere; }
 
-/* Los espacios seguros también cuentan en iPhone horizontal. */
 .section-pad,
 .hero-sticky,
 .benefit,
@@ -1280,7 +1208,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .booking-form .button { min-height:56px; }
 .booking-form input[type=date] { width:100%; min-inline-size:0; }
 
-/* El video ocupa su marco sin imponer su tamaño original al grid. */
 .pw-reel-media { min-width:0; }
 .pw-reel-media video {
   position:absolute;
@@ -1296,12 +1223,10 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .pw-reel-caption > * { min-width:0; overflow-wrap:anywhere; }
 .pw-reels-heading h2 { min-width:0; }
 
-/* Evita comprimir las tres redes junto al logotipo. */
 @media (max-width:1399px) {
   .site-footer { grid-template-columns:minmax(0,1fr); }
 }
 
-/* Tablet horizontal y laptops estrechas. */
 @media (min-width:901px) and (max-width:1099px) {
   .main-nav { gap:.15rem; }
   .main-nav a { padding:.65rem .7rem; }
@@ -1318,7 +1243,7 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 }
 
 @media (max-width:900px) {
-  .site-header .brand { flex:0 1 auto; min-width:0; max-width:calc(100% - 100px); }
+  .site-header 
   .site-header .main-nav {
     width:auto;
     left:max(var(--gutter),env(safe-area-inset-left,0px));
@@ -1330,7 +1255,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .custom-title h2 { max-width:100%; }
 }
 
-/* Una tarjeta legible es preferible a dos columnas comprimidas. */
 @media (max-width:700px) {
   .package-card { grid-template-columns:minmax(0,1fr); }
   .package-image img { height:auto; aspect-ratio:4/3; }
@@ -1364,8 +1288,6 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .proof-stat strong { letter-spacing:-.04em; }
 }
 
-/* Sin escenario fijo si la ventana no tiene espacio suficiente.
-   Coincide con el mínimo de 1100 x 800 usado por el JavaScript. */
 @media (max-width:1099px), (max-height:799px) {
   .packages-scroll.is-horizontal { height:auto; padding:3rem 0; }
   .packages-scroll.is-horizontal .packages-sticky {
@@ -1387,29 +1309,17 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
   .whatsapp-art { width:68px; height:68px; }
 }
 
-/* No comprimir el contenido al medir el escenario horizontal. */
 .packages-scroll.is-horizontal .packages-sticky > * { flex-shrink:0; }
 
-/* ============================================================
-   SISTEMA TIPOGRÁFICO — LA REGLA QUE FALTABA
-   em dentro de TITULAR  -> Comico (frase artística)
-   em dentro de PÁRRAFO  -> Bankside en peso 650 (énfasis)
-   ============================================================ */
-
-/* Comico en los acentos de titular, sin cursiva artificial. */
-.hero-intro h1 em,
 .statement h2 em,
 .founder-copy h2 em,
-.gallery-copy h2 em,
-.brand em {
-  font-family: var(--hand);
-  font-weight: 400;
-  font-style: normal;
+.gallery-copy h2 em {
+  font-family:var(--hand);
+  font-weight:400;
+  font-style:normal;
+  text-transform:none;
 }
 
-/* ENFASIS sin cuarta tipografia: se marca con PESO, no con cursiva.
-   Bankside es variable (100-900), asi que 650 destaca la palabra
-   sin salirse de las tres fuentes aprobadas.                       */
 p em,
 li em,
 blockquote em,
@@ -1419,16 +1329,12 @@ blockquote em,
   font-weight: 650;
 }
 
-/* Frase artística suelta (tipo "Si puedes leer esto, ya es arte"). */
 .frase-artista {
   font-family: var(--hand);
   font-style: normal;
   font-weight: 400;
   letter-spacing: .06em;
 }
-
-/* PAQUETES: LA FOTO SE ADAPTA A LA TARJETA,
-   SIN IMPONER SU ALTURA ORIGINAL */
 
 @media (min-width: 701px) {
   #paquetes .package-image {
