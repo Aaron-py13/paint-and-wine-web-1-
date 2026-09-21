@@ -56,8 +56,10 @@
   --body:"Bankside Sans","Helvetica Neue",Arial,sans-serif;
   --hand:"Comico",cursive;
 
-  --radio:28px;
-  --radio-sm:18px;
+  --radio:56px;      /* tarjetas, fotos, contenedores. La clienta lo quiere mas
+                        redondo y menos generico. Paquetes y redes van aparte. */
+                        lo pidio "no tan recto". Paquetes queda aparte, en 28px. */
+  --radio-sm:28px;   /* version movil y piezas pequenas */
 
   --gutter:clamp(1.25rem,5vw,7rem);
   --header-height:76px;
@@ -306,7 +308,9 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .price-context { margin:0; padding:0 var(--gutter) 1rem; color:#fffcf8cc; font-size:.85rem; }
 .price-context strong { color:var(--cream); }
 .packages-track { display:grid; gap:1.5rem; width:100%; padding:0 var(--gutter); }
-.package-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; min-width:0; border-radius:var(--radio); overflow:hidden; color:var(--ink); }
+/* PAQUETES: se queda en 28px a proposito. Son las tarjetas mas grandes de
+   la pagina y con 40px las esquinas se comen la foto.                     */
+.package-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); width:100%; min-width:0; border-radius:28px; overflow:hidden; color:var(--ink); }
 .package-lime { background:var(--lime); } .package-sky { background:var(--sky); } .package-blue { background:var(--blue); }
 .package-image { min-width:0; position:relative; }
 .package-image img { height:100%; object-fit:cover; }
@@ -392,7 +396,9 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .site-footer { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:center; gap:3rem; padding:clamp(3rem,6vw,7rem) var(--gutter) 7rem; background:var(--guinda); color:var(--cream); }
 
 .social-networks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.8rem; min-width:0; }
-.social-link { --social-background:var(--guinda); position:relative; isolation:isolate; display:grid; grid-template-columns:44px minmax(0,1fr) auto; align-items:center; gap:.65rem; min-width:0; min-height:92px; padding:.85rem; border:1px solid #fffcf833; border-radius:var(--radio); background:#ffffff0f; overflow:hidden; transition:transform .3s,box-shadow .3s; }
+/* REDES: 28px fijo. La tarjeta mide 92px de alto; con 56px el radio pasa
+   la mitad de la altura y se convierte en capsula.                        */
+.social-link { --social-background:var(--guinda); position:relative; isolation:isolate; display:grid; grid-template-columns:44px minmax(0,1fr) auto; align-items:center; gap:.65rem; min-width:0; min-height:92px; padding:.85rem; border:1px solid #fffcf833; border-radius:28px; background:#ffffff0f; overflow:hidden; transition:transform .3s,box-shadow .3s; }
 .social-link::before { content:""; position:absolute; z-index:-1; inset:0; background:var(--social-background); opacity:0; transition:opacity .3s; }
 .social-link.instagram { --social-background:linear-gradient(135deg,#833ab4,#c13584 38%,#fd1d1d 70%,#fcb045); }
 .social-link.tiktok { --social-background:linear-gradient(135deg,#101010,#262626); }
