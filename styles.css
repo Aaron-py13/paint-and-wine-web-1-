@@ -252,7 +252,8 @@ section[id] { scroll-margin-top:calc(var(--header-height) + 14px); }
 .founder { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); align-items:center; gap:clamp(2rem,6vw,7rem); background:var(--coral); }
 .founder-image { position:relative; max-width:600px; min-width:0; margin:0; }
 .founder-image img { position:relative; z-index:2; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radio); }
-.paint-mark { position:absolute; z-index:1; inset:10% -3% -3% 5%; background:var(--lime); transform:rotate(-3deg); }
+/* Las puntas del bloque siguen la misma curva que la foto que tapa. */
+.paint-mark { position:absolute; z-index:1; inset:10% -3% -3% 5%; border-radius:var(--radio); background:var(--lime); transform:rotate(-3deg); }
 .founder-copy { min-width:0; }
 .founder-copy h2 { margin:0; font-family:var(--display); font-size:clamp(3.5rem,8vw,9rem); font-weight:300; line-height:1.05; letter-spacing:-.06em;  font-style:normal;  text-transform:uppercase; }
 .founder-copy h2 em { font-family:var(--hand); font-weight:400; }
